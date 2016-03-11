@@ -1,0 +1,45 @@
+# libtool
+ltmain.sh
+m4/libtool.m4
+m4/ltoptions.m4
+m4/ltsugar.m4
+m4/ltversion.m4
+m4/lt~obsolete.m4
+
+# autotools
+Makefile.in
+aclocal.m4
+autom4te.cache/
+config.guess
+config.h.in
+config.sub
+configure
+depcomp
+install-sh
+missing
+src/Makefile.in
+
+# configure
+Makefile
+config.h
+config.log
+config.status
+libtool
+src/.deps/
+src/Makefile
+stamp-h1
+
+# make
+*.la
+*.lo
+*.o
+*.so
+*.lai
+
+# packages
+*.build
+*.changes
+*.deb
+*.dsc
+*.tar.gz
+zabbix-sendmail-*/

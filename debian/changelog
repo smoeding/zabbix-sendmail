@@ -1,0 +1,5 @@
+zabbix-sendmail (0.1.0-1stm1) unstable; urgency=low
+
+  * Initial release
+
+ -- Stefan Möding <stm@kill-9.net>  Fri, 11 Mar 2016 14:05:14 +0100

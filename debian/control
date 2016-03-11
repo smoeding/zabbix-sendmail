@@ -1,0 +1,17 @@
+Source: zabbix-sendmail
+Priority: extra
+Maintainer: Stefan Möding <stm@kill-9.net>
+Build-Depends: debhelper (>= 8.0.0), dpkg-dev (>= 1.16.1~), autotools-dev
+Standards-Version: 3.9.3
+Section: libs
+Homepage: https://github.com/smoeding/zabbix-sendmail
+
+Package: zabbix-sendmail
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, zabbix-agent (>= 3.0.1)
+Description: Monitor Sendmail mail statistics with Zabbix
+ A native Zabbix Agent module to monitor Sendmail mail statistics. It
+ implements additional item keys and allows the Zabbix Agent to read
+ message counters and sizes for each mailer from the Sendmail statistics
+ file.
