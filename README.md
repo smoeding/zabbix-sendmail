@@ -28,12 +28,12 @@ There is also a Makefile target `deb` to build a Debian package.
 Setup
 -----
 
-Install the file `zbx_mailstats.so` in the location defined by the Zabbix
-Agent `LoadModulePath` configuration parameter. The Debian package installs
-the file in `/usr/lib/zabbix/modules`.
+Install the file `sendmail.so` in the location defined by the Zabbix Agent
+`LoadModulePath` configuration parameter. The Debian package installs the
+file in `/usr/lib/zabbix/modules`.
 
-Add the setting `LoadModule=zbx_mailstats.so` to the Zabbix Agent
-configuration file. This will be created automatically by the Debian package.
+Add the setting `LoadModule=sendmail.so` to the Zabbix Agent configuration
+file. This will be created automatically by the Debian package.
 
 The user that runs the Zabbix Agent (`zabbix` in a default setup) needs to
 have permission to read the Sendmail statistics file. There are two
@@ -133,4 +133,3 @@ The Regents of the University of California.  All rights reserved.
 ```
 Copyright (c) 2016 Ryan Armstrong <ryan@cavaliercoder.com>
 ```
-
