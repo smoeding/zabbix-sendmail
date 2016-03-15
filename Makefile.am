@@ -2,6 +2,8 @@ ACLOCAL_AMFLAGS = -I m4
 
 SUBDIRS = src
 
+EXTRA_DIST = README.md
+
 deb:
 	$(MAKE) dist
 	tar xf $(PACKAGE)-$(PACKAGE_VERSION).tar.gz
