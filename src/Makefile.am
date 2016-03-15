@@ -3,7 +3,7 @@ AM_CFLAGS  = $(ZABBIX_CPPFLAGS)
 AM_LDFLAGS = -module -avoid-version -shared -export-dynamic
 
 # Config file for Zabbix to load the module
-zbx_sendmail_ladir = $(sysconfdir)/zabbix
+zbx_sendmail_ladir = $(sysconfdir)/zabbix/zabbix_agentd.d
 dist_zbx_sendmail_la_DATA = sendmail.conf
 
 # Redefine installation target directories
