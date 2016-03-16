@@ -39,7 +39,7 @@ The user that runs the Zabbix Agent (`zabbix` in a default setup) needs to
 have permission to read the Sendmail statistics file. There are two
 possibilities:
 
-- Add the user `zabbix` to the necessary group (`smmta` on Debian).
+- Add the user `zabbix` to the necessary group (`smmsp` on Debian).
 - Make sure the file is world-readable (if your security policy allows this).
 
 You can test the setup by running the following command:
