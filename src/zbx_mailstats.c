@@ -46,6 +46,16 @@
 /* Zabbix includes */
 #include "module.h"
 
+/* OS specific settings */
+#ifdef linux
+#define SENDMAIL_ST_PATH "/var/lib/sendmail/sendmail.st"
+#endif
+#ifdef __FreeBSD__
+#define SENDMAIL_ST_PATH "/var/log/sendmail.st"
+#endif
+#ifndef SENDMAIL_ST_PATH
+#error Unsupported operating system
+#endif
 
 static struct statistics sendmail_stat;
 
@@ -57,16 +67,16 @@ static int item_timeout = 0;
 int zbx_module_mailstats(AGENT_REQUEST *request, AGENT_RESULT *result);
 
 static ZBX_METRIC keys[] = {
-  { "sendmail.conn.from",               CF_HAVEPARAMS, zbx_module_mailstats, "/var/lib/sendmail/sendmail.st"   },
-  { "sendmail.conn.to",                 CF_HAVEPARAMS, zbx_module_mailstats, "/var/lib/sendmail/sendmail.st"   },
-  { "sendmail.conn.rejected",           CF_HAVEPARAMS, zbx_module_mailstats, "/var/lib/sendmail/sendmail.st"   },
-  { "sendmail.mailer.msgs.from",        CF_HAVEPARAMS, zbx_module_mailstats, "/var/lib/sendmail/sendmail.st,1" },
-  { "sendmail.mailer.kbytes.from",      CF_HAVEPARAMS, zbx_module_mailstats, "/var/lib/sendmail/sendmail.st,1" },
-  { "sendmail.mailer.msgs.to",          CF_HAVEPARAMS, zbx_module_mailstats, "/var/lib/sendmail/sendmail.st,1" },
-  { "sendmail.mailer.kbytes.to",        CF_HAVEPARAMS, zbx_module_mailstats, "/var/lib/sendmail/sendmail.st,1" },
-  { "sendmail.mailer.msgs.rejected",    CF_HAVEPARAMS, zbx_module_mailstats, "/var/lib/sendmail/sendmail.st,1" },
-  { "sendmail.mailer.msgs.discarded",   CF_HAVEPARAMS, zbx_module_mailstats, "/var/lib/sendmail/sendmail.st,1" },
-  { "sendmail.mailer.msgs.quarantined", CF_HAVEPARAMS, zbx_module_mailstats, "/var/lib/sendmail/sendmail.st,1" },
+  { "sendmail.conn.from",               CF_HAVEPARAMS, zbx_module_mailstats, SENDMAIL_ST_PATH },
+  { "sendmail.conn.to",                 CF_HAVEPARAMS, zbx_module_mailstats, SENDMAIL_ST_PATH },
+  { "sendmail.conn.rejected",           CF_HAVEPARAMS, zbx_module_mailstats, SENDMAIL_ST_PATH },
+  { "sendmail.mailer.msgs.from",        CF_HAVEPARAMS, zbx_module_mailstats, SENDMAIL_ST_PATH ",1" },
+  { "sendmail.mailer.kbytes.from",      CF_HAVEPARAMS, zbx_module_mailstats, SENDMAIL_ST_PATH ",1" },
+  { "sendmail.mailer.msgs.to",          CF_HAVEPARAMS, zbx_module_mailstats, SENDMAIL_ST_PATH ",1" },
+  { "sendmail.mailer.kbytes.to",        CF_HAVEPARAMS, zbx_module_mailstats, SENDMAIL_ST_PATH ",1" },
+  { "sendmail.mailer.msgs.rejected",    CF_HAVEPARAMS, zbx_module_mailstats, SENDMAIL_ST_PATH ",1" },
+  { "sendmail.mailer.msgs.discarded",   CF_HAVEPARAMS, zbx_module_mailstats, SENDMAIL_ST_PATH ",1" },
+  { "sendmail.mailer.msgs.quarantined", CF_HAVEPARAMS, zbx_module_mailstats, SENDMAIL_ST_PATH ",1" },
   { NULL }
 };
 
