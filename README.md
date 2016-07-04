@@ -13,7 +13,7 @@ should get you going:
 
 ```
 $ libtoolize
-$ aclocal
+$ aclocal -I m4
 $ autoheader
 $ autoconf
 $ automake --add-missing
